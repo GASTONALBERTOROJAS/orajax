@@ -1,69 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, Database, Link, Shield } from "lucide-react";
-import { staggerContainer, cardVariant, iconBounce, viewportConfig } from "@/lib/animations";
+import { staggerContainer, cardVariant, viewportConfig } from "@/lib/animations";
 
-const items = [
-  {
-    icon: FileText,
-    problem: "Procesos manuales",
-    solution: "Automatización",
-    desc: "Elimina el trabajo repetitivo y libera a tu equipo para tareas de alto valor.",
-  },
-  {
-    icon: Database,
-    problem: "Datos dispersos",
-    solution: "Centralización",
-    desc: "Unifica toda la información de tu negocio en una única fuente de verdad.",
-  },
-  {
-    icon: Link,
-    problem: "Sistemas desconectados",
-    solution: "Integraciones",
-    desc: "Conecta tu ERP, CRM y cualquier herramienta para que funcionen como uno.",
-  },
-  {
-    icon: Shield,
-    problem: "Errores en datos",
-    solution: "Confiabilidad",
-    desc: "Datos limpios, consistentes y validados para decisiones sin incertidumbre.",
-  },
+const problems = [
+  { emoji: "⏱️", text: "Demasiado tiempo en tareas repetitivas" },
+  { emoji: "📊", text: "Datos en varios sistemas sin visión clara" },
+  { emoji: "🔌", text: "Herramientas que no se hablan entre sí" },
+  { emoji: "❌", text: "Decisiones basadas en información incorrecta" },
 ];
 
 export default function ProblemasSoluciones() {
   return (
-    <section id="problemas" className="py-20 lg:py-28 bg-gray-50 relative overflow-hidden">
-      {/* Subtle background SVG */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1.5" fill="#3B82F6" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dots)" />
-      </svg>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="problemas" className="py-16 lg:py-24 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportConfig}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
         >
-          <span className="inline-block bg-red-50 text-red-500 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            ¿Te identificas?
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#1E3A8A] mb-4">
-            Problemas que resolvemos
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#1E3A8A] mb-3">
+            ¿Te suena familiar?
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Cada desafío operacional tiene una solución concreta. Así transformamos
-            los puntos de dolor en ventajas competitivas.
+          <p className="text-gray-400 text-base max-w-lg mx-auto">
+            Trabajamos con empresas que enfrentan estos problemas cada día.
           </p>
         </motion.div>
 
@@ -72,47 +34,32 @@ export default function ProblemasSoluciones() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="grid sm:grid-cols-2 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
-          {items.map((item) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.problem}
-                variants={cardVariant}
-                whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}
-                className="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm group cursor-default"
-              >
-                <div className="flex items-start gap-5">
-                  <motion.div
-                    variants={iconBounce}
-                    className="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-100 transition-colors"
-                  >
-                    <Icon className="w-6 h-6 text-[#3B82F6]" />
-                  </motion.div>
+          {problems.map((p) => (
+            <motion.div
+              key={p.text}
+              variants={cardVariant}
+              whileHover={{ scale: 1.03, boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
+              className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center"
+            >
+              <div className="text-3xl mb-3">{p.emoji}</div>
+              <p className="text-sm font-medium text-gray-700 leading-snug">{p.text}</p>
+            </motion.div>
+          ))}
+        </motion.div>
 
-                  <div className="flex-1">
-                    {/* Problem → Solution */}
-                    <div className="flex items-center gap-2 mb-2 flex-wrap">
-                      <span className="inline-flex items-center gap-1 bg-red-50 text-red-500 text-xs font-semibold px-2.5 py-1 rounded-md">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
-                        {item.problem}
-                      </span>
-                      <svg className="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                      <span className="inline-flex items-center gap-1 bg-emerald-50 text-[#10B981] text-xs font-semibold px-2.5 py-1 rounded-md">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-                        {item.solution}
-                      </span>
-                    </div>
-
-                    <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportConfig}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-10 text-center"
+        >
+          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-100 rounded-full px-5 py-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+            <span className="text-sm font-semibold text-[#10B981]">Nosotros los resolvemos — en menos de 4 semanas</span>
+          </div>
         </motion.div>
       </div>
     </section>
