@@ -48,7 +48,7 @@ const solutions = [
 
 export default function SolucionesCore() {
   return (
-    <section id="soluciones" className="py-20 lg:py-28 bg-white relative overflow-hidden">
+    <section id="soluciones" className="py-20 lg:py-28 bg-gray-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-blue-50/40 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-gradient-to-tl from-emerald-50/40 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -62,10 +62,10 @@ export default function SolucionesCore() {
           className="text-center mb-14"
         >
           <span className="inline-block bg-blue-50 text-[#3B82F6] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            Nuestras soluciones
+            Soluciones core
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1E3A8A] mb-4">
-            Las 3 soluciones core
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#1E3A8A] mb-4">
+            Tres áreas, resultados concretos
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             Metodología probada, resultados medibles, implementación en semanas.
@@ -102,7 +102,7 @@ export default function SolucionesCore() {
                   </motion.div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-[#1E3A8A] mb-3">{sol.title}</h3>
+                    <h3 className="font-heading text-xl font-bold text-[#1E3A8A] mb-3">{sol.title}</h3>
 
                     <div className="space-y-3 text-sm">
                       <div className="flex gap-2">

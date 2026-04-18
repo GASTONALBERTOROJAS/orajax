@@ -133,6 +133,11 @@
 }
 
 @layer utilities {
+  .font-heading {
+    font-family: var(--font-space-grotesk), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
   .text-gradient-blue-green {
     background: linear-gradient(135deg, #3B82F6, #10B981);
     -webkit-background-clip: text;

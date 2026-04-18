@@ -58,7 +58,7 @@ export default function ProblemasSoluciones() {
           <span className="inline-block bg-red-50 text-red-500 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             ¿Te identificas?
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1E3A8A] mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#1E3A8A] mb-4">
             Problemas que resolvemos
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
